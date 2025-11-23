@@ -1,0 +1,3 @@
+"""
+Decomposes planar graph
+"""
