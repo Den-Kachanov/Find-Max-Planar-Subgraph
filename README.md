@@ -1,6 +1,6 @@
 # Find-Max-Planar-Subgraph
 
-An algorithmic tool for computing the maximum planar subgraph of an arbitrary undirected graph. The project implements heuristic and approximate methods for extracting subgraphs that can be embedded in the plane without edge crossings.
+An algorithmic tool for computing the maximum planar subgraph of an arbitrary undirected graph. ...
 
 ## Project description
 
@@ -62,21 +62,38 @@ write_graph(max_graph, "example_maximal_planar_graph.csv")
 ## Project structure
 
 Find-Max-Planar-Subgraph/
+
 │
+
 ├── algorithms/
+
 │   ├── maximal_planar_subgraph.py
+
 │   └── decompose_planar_subgraph.py
+
 │
+
 ├── io/
+
 │   ├── read_graph.py
+
 │   └── write_graph.py
+
 ├── tests/
+
 │   ├── test_maximal_subgraph.py
+
 │   ├── test_planarity.py
+
 │   └── test_read_write.py
+
 │
+
 ├── main.py
+
 ├── requirements.txt
+
 ├── README.md
+
 └── LICENSE
 
