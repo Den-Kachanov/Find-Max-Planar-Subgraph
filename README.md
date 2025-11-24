@@ -14,12 +14,13 @@ A maximum planar subgraph is a subgraph that:
 ## Features
 
 - Loading graphs from `.csv`
+- Writing graphs to `.csv`
 ...
 
 ## Technologies used
 
 - Python 3.11.3
-...
+- networkx library
 
 ## Installation
 
@@ -82,3 +83,4 @@ Find-Max-Planar-Subgraph/<br>
 ## Team
 **[Solomiia Leshchuk](https://github.com/solosun0308-stack)**
 **[Solomiya Lesivtsiv](https://github.com/Solomiya-Lesivtsiv)**
+**[Olesia Shlapak](https://github.com/shlapakolesia)**
