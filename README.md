@@ -81,3 +81,4 @@ Find-Max-Planar-Subgraph/<br>
 
 ## Team
 **[Solomiia Leshchuk](https://github.com/solosun0308-stack)**
+**[Solomiya Lesivtsiv](https://github.com/Solomiya-Lesivtsiv)**
