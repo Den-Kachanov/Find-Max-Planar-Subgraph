@@ -79,3 +79,5 @@ Find-Max-Planar-Subgraph/<br>
 ├── README.md<br>
 └── LICENSE<br>
 
+## Team
+**[Solomiia Leshchuk](https://github.com/solosun0308-stack)**
