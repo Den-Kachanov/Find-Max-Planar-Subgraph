@@ -81,6 +81,7 @@ Find-Max-Planar-Subgraph/<br>
 └── LICENSE<br>
 
 ## Team
+**[Denys Kachanov](https://github.com/Den-Kachanov)**
 **[Solomiia Leshchuk](https://github.com/solosun0308-stack)**
 **[Solomiya Lesivtsiv](https://github.com/Solomiya-Lesivtsiv)**
 **[Olesia Shlapak](https://github.com/shlapakolesia)**
