@@ -25,7 +25,6 @@ def tree_of_undir_graph(graph: dict[int, set[int]]) -> dict[int, set[int]] | Non
                 all(isinstance(v, int) for v in value)):
             return None
 
-
     # visited vertices
     visited = set()
     # skeleton
@@ -59,3 +58,51 @@ def tree_of_undir_graph(graph: dict[int, set[int]]) -> dict[int, set[int]] | Non
                 stack.append(v)
 
     return skeleton
+
+
+def check_planarity(graph: dict[int, set[int]]) -> bool:
+    """
+    Checks whether graph is planar
+
+    Args:
+        graph (dict[int, set[int]]): The graph to check
+
+    Returns:
+        bool: planarity
+    """
+    {
+        1: {2, 3, 4},
+        2: {1, 4},
+        3: {1},
+        4: {1, 2}
+    }
+
+    graph_copy = {v: n.copy() for v, n in graph.items()}
+
+    # going through graph
+    for vertice, nodes in graph_copy.items():
+        # if vertice does not have 2 nodes => cannot subdivide
+        if len(nodes) <= 1:
+            continue
+
+        for second_nodes in nodes:
+            if vertice in second_nodes and len(second_nodes) != 1:
+                subdivide_graph(graph_copy, vertice)
+
+
+def remove_subdivision(graph: dict[int, set[int]], vertice: int):
+    """
+    'Removes' subdivision in graph by a vertice
+
+    Example:
+    ```
+    1 --- 2   -2       1
+    |     |   ==>    /   \\
+    4 --- 3         4 --- 3
+    ```
+
+    Args:
+        graph (dict[int, set[int]]): Graph
+        vertice (int): Vertice
+    """
+    pass
