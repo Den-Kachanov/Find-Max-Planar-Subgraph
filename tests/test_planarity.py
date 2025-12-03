@@ -1,3 +1,0 @@
-"""
-Tests for planar graphs
-"""
