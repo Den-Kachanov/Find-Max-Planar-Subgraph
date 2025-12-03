@@ -51,30 +51,25 @@ Reading graph from the file.
 Finding maximal planar graph.
 Write it to the file
 """
-from algorithm.maximal_planar_subgraph import find_maximal_planar_subgraph
-from io.read_graph import read_graph
-from io.write_graph import write_graph
+from algorithm.tools import find_maximal_planar_subgraph
+from graph_rw.read_graph import read_graph_from_csv
+from graph_rw.write_graph import write_graph_to_csv
 
 # reading the graph
-graph = read_graph("example.csv")
+graph = read_graph_from_csv("example.csv")
 max_graph = find_maximal_planar_subgraph(graph)
-write_graph(max_graph, "example_maximal_planar_graph.csv")
+write_graph_to_csv(max_graph, "example_maximal_planar_graph.csv")
 ```
 
 ## Project structure<br>
 Find-Max-Planar-Subgraph/<br>
 │<br>
 ├── algorithms/<br>
-│   ├── maximal_planar_subgraph.py<br>
-│   └── decompose_planar_subgraph.py<br>
+│   └── tools.py<br>
 │<br>
-├── io/<br>
+├── graph_rw/<br>
 │   ├── read_graph.py<br>
 │   └── write_graph.py<br>
-├── tests/<br>
-│   ├── test_maximal_subgraph.py<br>
-│   ├── test_planarity.py<br>
-│   └── test_read_write.py<br>
 │<br>
 ├── main.py<br>
 ├── requirements.txt<br>
