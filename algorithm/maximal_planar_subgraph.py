@@ -59,6 +59,7 @@ def tree_of_undir_graph(graph: dict[int, set[int]]) -> dict[int, set[int]] | Non
 
     return skeleton
 
+def
 
 def check_planarity(graph: dict[int, set[int]]) -> bool:
     """
@@ -105,4 +106,21 @@ def remove_subdivision(graph: dict[int, set[int]], vertice: int):
         graph (dict[int, set[int]]): Graph
         vertice (int): Vertice
     """
-    pass
+    if vertice not in graph:
+        return None
+    neighbors = graph[vertice]
+    if len(neighbors) != 2:
+        return
+    neighbor_list = list(neighbors)
+    u, v = neighbor_list[0], neighbor_list[1]
+    # Delete node from graph
+    del graph[vertice]
+    # Delete node from its neighbors
+    if u in graph:
+        graph[u].discard(vertice)
+    if v in graph:
+        graph[v].discard(vertice)
+    # Add edge between neighbors (if they are not loop)
+    if u != v and u in graph and v in graph:
+        graph[u].add(v)
+        graph[v].add(u)
