@@ -1,5 +1,15 @@
 """
 Contains algroithm for finding maximal planar graph
+
+functions:
+    tree_of_undir_graph(graph: dict[int, set[int]]) -> dict[int, set[int]]
+        Returns a tree of an undirected graph
+
+    check_planarity(graph: dict[int, set[int]]) -> bool:
+        Checks whether the graph is planar
+
+    remove_subdivision(graph: dict[int, set[int]], vertice: int)
+        Removes the vertice from the graph
 """
 
 
@@ -59,7 +69,6 @@ def tree_of_undir_graph(graph: dict[int, set[int]]) -> dict[int, set[int]] | Non
 
     return skeleton
 
-def
 
 def check_planarity(graph: dict[int, set[int]]) -> bool:
     """
@@ -71,12 +80,12 @@ def check_planarity(graph: dict[int, set[int]]) -> bool:
     Returns:
         bool: planarity
     """
-    {
-        1: {2, 3, 4},
-        2: {1, 4},
-        3: {1},
-        4: {1, 2}
-    }
+    # {
+    #     1: {2, 3, 4},
+    #     2: {1, 4},
+    #     3: {1},
+    #     4: {1, 2}
+    # }
 
     graph_copy = {v: n.copy() for v, n in graph.items()}
 
@@ -108,18 +117,25 @@ def remove_subdivision(graph: dict[int, set[int]], vertice: int):
     """
     if vertice not in graph:
         return None
+
     neighbors = graph[vertice]
+
     if len(neighbors) != 2:
         return
+
     neighbor_list = list(neighbors)
     u, v = neighbor_list[0], neighbor_list[1]
+
     # Delete node from graph
     del graph[vertice]
+
     # Delete node from its neighbors
     if u in graph:
         graph[u].discard(vertice)
+
     if v in graph:
         graph[v].discard(vertice)
+
     # Add edge between neighbors (if they are not loop)
     if u != v and u in graph and v in graph:
         graph[u].add(v)

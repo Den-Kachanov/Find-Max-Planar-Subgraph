@@ -9,18 +9,19 @@ A maximum planar subgraph is a subgraph that:
 - contains the maximum possible number of edges among all planar subgraphs of the original graph,
 - is NP-hard to compute in the general case.
 
-*Used Algorithm???*
+## Algorithms implemented
+
+* Kuratowski's theorem
+* Wagner's theorem
 
 ## Features
 
 - Loading graphs from `.csv`
 - Writing graphs to `.csv`
-...
 
 ## Technologies used
 
 - Python 3.11.3
-- networkx library
 
 ## Installation
 
