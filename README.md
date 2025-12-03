@@ -1,6 +1,6 @@
 # Find-Max-Planar-Subgraph
 
-An algorithmic tool for computing the maximum planar subgraph of an arbitrary undirected graph. ...
+An algorithmic tool for computing the maximum planar subgraph of an arbitrary undirected graph.
 
 ## Project description
 
@@ -9,7 +9,7 @@ A maximum planar subgraph is a subgraph that:
 - contains the maximum possible number of edges among all planar subgraphs of the original graph,
 - is NP-hard to compute in the general case.
 
-## Algorithms implemented
+## Algorithms implented
 
 * Kuratowski's theorem
 * Wagner's theorem
@@ -83,7 +83,11 @@ Find-Max-Planar-Subgraph/<br>
 
 ## Team
 **[Denys Kachanov](https://github.com/Den-Kachanov)**
+
 **[Solomiia Leshchuk](https://github.com/solosun0308-stack)**
+
 **[Solomiya Lesivtsiv](https://github.com/Solomiya-Lesivtsiv)**
+
 **[Olesia Shlapak](https://github.com/shlapakolesia)**
+
 **[Kateryna Zinchuk](https://github.com/Kateryna-zin)**
