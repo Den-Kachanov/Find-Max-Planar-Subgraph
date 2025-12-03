@@ -56,7 +56,17 @@ def read_graph_from_dot(filename: str) -> tuple[dict[int, set[int]], bool]:
 
 def read_graph_from_csv(filename):
     """
-    Читає файл і перевіряє чи він орієнтований чи ні
+    Reads graph from .csv file
+
+    Args:
+        filename (str): File name or path to the file
+
+    Returns:
+        tuple[dict[int, set[int]], bool]:
+            First element is the graph
+            Second element states the type of graph: True - directed, False - undirected
+
+
     """
     graph = {}
     edges = []
