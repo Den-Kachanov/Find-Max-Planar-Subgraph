@@ -85,7 +85,7 @@ def read_graph_from_csv(filename):
 
     is_directed = False
     for v1, v2 in edges:
-        if (v2, v1) not in edges:
+        if (v2, v1) in edges:
             is_directed = True
             break
 
