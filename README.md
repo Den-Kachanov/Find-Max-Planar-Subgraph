@@ -65,7 +65,7 @@ python3 main.py compute example.csv result.dot --csv
 python3 main.py picture result.dot result.png
 ```
 
-* Through python:
+Through python:
 
 ```python
 """
