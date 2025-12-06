@@ -53,18 +53,19 @@ pip install -r requirements.txt
 
 Using cli:
 
-For .dot files:
+* For .dot files:
 ```bash
 python3 main.py compute example.dot result.dot
 python3 main.py picture result.dot result.png
 ```
 
-For .csv files:
+* For .csv files:
 ```bash
 python3 main.py compute example.csv result.dot --csv
 python3 main.py picture result.dot result.png
 ```
 
+* Through python:
 
 ```python
 """
