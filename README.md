@@ -13,7 +13,6 @@ A maximum planar subgraph is a subgraph that:
 
 * DFS with backtracking
 * Branch-and-bound
-* Kuratowski's theorem
 
 ## Time complexity
 
