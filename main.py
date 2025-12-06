@@ -28,7 +28,11 @@ def load_graph(file: str):
         [type]: [description]
     """
     # Reads a .dot file and returns a NetworkX graph
-    return nx.drawing.nx_pydot.read_dot(file)
+    try:
+        return nx.drawing.nx_pydot.read_dot(file)
+    except FileNotFoundError:
+        print(f"Cannot find {file}")
+        exit(1)
 
 
 def save_graph_picture(G, file):
@@ -45,7 +49,10 @@ def save_graph_picture(G, file):
     plt.figure(figsize=(10, 8))
     nx.draw(G, pos, with_labels=True, node_size=800, node_color="lightblue")
 
-    plt.savefig(file, dpi=150, bbox_inches="tight")
+    try:
+        plt.savefig(file, dpi=150, bbox_inches="tight")
+    except PermissionError:
+        print(f"Do not have permission to write {file}")
     plt.close()
 
 
@@ -76,13 +83,22 @@ def main():
     args = parser.parse_args()
 
     if args.command == "compute":
-        if args.csv:
-            graph, _ = read_graph.read_graph_from_csv(args.graph_file)
-        else:
-            graph, _ = read_graph.read_graph_from_dot(args.graph_file)
+        try:
+            if args.csv:
+                graph, _ = read_graph.read_graph_from_csv(args.graph_file)
+
+            else:
+                graph, _ = read_graph.read_graph_from_dot(args.graph_file)
+
+        except FileNotFoundError:
+            print(f"Cannot find {args.graph_file}")
+            exit(1)
 
         planar_subgraph = tools.maximum_planar_subgraph(graph)
-        write_graph.write_graph_to_dot(planar_subgraph, args.output_graph_file)
+        try:
+            write_graph.write_graph_to_dot(planar_subgraph, args.output_graph_file)
+        except PermissionError:
+            print(f"Do not have permission to write {args.output_graph_file}")
 
     elif args.command == "picture":
         G = load_graph(args.dot_file)
