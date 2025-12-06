@@ -2,12 +2,13 @@
 Cli for the project.
 
 How to run:
-```
-python3 main.py show graph.dot
+```bash
+python3 main.py --help
 ```
 """
 
 import argparse
+import sys
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -17,42 +18,65 @@ from networkx.drawing.nx_pydot import graphviz_layout
 
 
 def load_graph(file: str):
-    """Load_graph loads file as a graph.
-
-    Loads .dot file as a graph
+    """Load a DOT file as a NetworkX graph.
 
     Args:
-        file (str): Path to file
+        file (str): Path to the .dot file.
 
     Returns:
-        [type]: [description]
+        nx.Graph: The loaded graph.
     """
-    # Reads a .dot file and returns a NetworkX graph
     try:
         return nx.drawing.nx_pydot.read_dot(file)
     except FileNotFoundError:
         print(f"Cannot find {file}")
-        exit(1)
+        sys.exit(1)
 
 
-def save_graph_picture(G, file):
-    """save_graph_picture.
+def save_graph_image(G: nx.Graph, file: str):
+    """
+    Save a graph to a picture.
 
-    Saves graph to picture
+    If the graph is planar, use planar layout (no crossing edges).
+    Otherwise, save with default layout.
 
     Args:
-        G: graph
-        file (str): Where to save
+        G: networkx Graph or MultiGraph
+        file: path to save
     """
-    pos = graphviz_layout(G, prog="dot")
-
     plt.figure(figsize=(10, 8))
-    nx.draw(G, pos, with_labels=True, node_size=800, node_color="lightblue")
+
+    is_planar, _ = nx.check_planarity(G)
+
+    if is_planar:
+        # planar layout avoids edge crossings -> good picture
+        pos = nx.planar_layout(G)
+
+        title = "Planar"
+
+    else:
+        # Standart graphviz layout
+        pos = graphviz_layout(G, prog="dot")
+        title = "Non-Planar"
+
+    nx.draw(
+        G,
+        pos,
+        with_labels=True,
+        node_size=700,
+        node_color="lightblue",
+        edge_color="gray",
+        font_size=10
+    )
+
+    plt.title(title)
 
     try:
-        plt.savefig(file, dpi=150, bbox_inches="tight")
+        plt.savefig(file, dpi=130, bbox_inches="tight")
     except PermissionError:
         print(f"Do not have permission to write {file}")
+        sys.exit(1)
+
     plt.close()
 
 
@@ -71,14 +95,10 @@ def main():
     compute_parser.add_argument("output_graph_file", help="File to write the maximum planar subgraph")
     compute_parser.add_argument("--csv", action="store_true", help="Specify that input is from .csv file")
 
-    # show
+    # picture
     show_parser = subparsers.add_parser("picture", help="Create a picture of the graph (matplotlib + networkx)")
     show_parser.add_argument("dot_file", help="The dot file that contains graph")
     show_parser.add_argument("png_file", help="File to save to the picture")
-
-    # convert
-    to_dot_parser = subparsers.add_parser("to_dot", help="From .csv to .dot")
-    to_csv_parser = subparsers.add_parser("to_csv", help="From .dot to .csv")
 
     args = parser.parse_args()
 
@@ -92,22 +112,18 @@ def main():
 
         except FileNotFoundError:
             print(f"Cannot find {args.graph_file}")
-            exit(1)
+            sys.exit(1)
 
         planar_subgraph = tools.maximum_planar_subgraph(graph)
         try:
             write_graph.write_graph_to_dot(planar_subgraph, args.output_graph_file)
         except PermissionError:
             print(f"Do not have permission to write {args.output_graph_file}")
+            sys.exit(1)
 
     elif args.command == "picture":
         G = load_graph(args.dot_file)
-        save_graph_picture(G, args.png_file)
-
-    elif args.command == "to_dot":
-        ...
-    elif args.command == "to_csv":
-        ...
+        save_graph_image(G, args.png_file)
 
 
 if __name__ == "__main__":

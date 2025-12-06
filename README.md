@@ -9,7 +9,7 @@ A maximum planar subgraph is a subgraph that:
 - contains the maximum possible number of edges among all planar subgraphs of the original graph,
 - is NP-hard to compute in the general case.
 
-## Algorithms implented
+## Algorithms implemented
 
 * DFS with backtracking
 * Branch-and-bound
@@ -23,11 +23,16 @@ Worst case: O(2^E)
 
 - Loading graphs from `.csv` and `.dot`
 - Creating picture of the graph (.png)
-- Converting between`.csv` and `.dot`
 
 ## Technologies used
 
 - Python 3.11.3
+
+## Dependencies
+
+- matplotlib
+- networkx
+- pydot
 
 ## Installation
 
@@ -49,9 +54,9 @@ cd Find-Max-Planar-Subgraph
 pip install -r requirements.txt
 ```
 
-4. How to use
+## How to use
 
-Using cli:
+CLI:
 
 * For .dot files:
 ```bash
@@ -65,7 +70,7 @@ python3 main.py compute example.csv result.dot --csv
 python3 main.py picture result.dot result.png
 ```
 
-Through python:
+Python:
 
 ```python
 """
@@ -85,7 +90,7 @@ write_graph.write_graph_to_csv(planar, "example_planar.dot")
 ```
 
 ## Project structure<br>
-Find-Max-Planar-Subgraph/<br>
+Find_Max_Planar_Subgraph/<br>
 │<br>
 ├── algorithms/<br>
 │   └── tools.py<br>
@@ -98,6 +103,60 @@ Find-Max-Planar-Subgraph/<br>
 ├── requirements.txt<br>
 ├── README.md<br>
 └── LICENSE<br>
+
+## Examples
+
+### Chvátal graph
+
+Original graph
+
+![Chvátal graph](examples/Chvatal-graph/chvatal.png)
+
+Maximum planar subgraph
+
+![Chvátal graph](examples/Chvatal-graph/maximum_planar_subgraph_chvatal.png)
+
+### Desargues-graph
+
+Original graph
+
+![Desargues Graph](examples/Desargues-graph/desargues.png)
+
+Maximum planar subgraph
+
+![Desargues Graph](examples/Desargues-graph/maximum_planar_subgraph_desargues.png)
+
+### K3,3
+
+Original graph
+
+![K3,3 graph](examples/K3-3/K3-3.png)
+
+Maximum planar subgraph
+
+![K3,3 graph](examples/K3-3/maximum_planar_subgraph_K3-3.png)
+
+### K5
+
+Original graph
+
+![K5 graph](examples/K5/K5.png)
+
+Maximum planar subgraph
+
+![K5 graph](examples/K5/maximum_planar_subgraph_K5.png)
+
+
+### Petersen graph
+
+Original graph
+
+![Petersen graph](examples/Petersen-graph/petersen.png)
+
+Maximum planar subgraph
+
+![K5 graph](examples/Petersen/maximum_planar_subgraph_petersen.png)
+
 
 ## Team
 **[Denys Kachanov](https://github.com/Den-Kachanov)**
