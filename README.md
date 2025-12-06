@@ -11,13 +11,19 @@ A maximum planar subgraph is a subgraph that:
 
 ## Algorithms implented
 
+* DFS with backtracking
+* Branch-and-bound
 * Kuratowski's theorem
-* Wagner's theorem
+
+## Time complexity
+
+Worst case: O(2^E)
 
 ## Features
 
-- Loading graphs from `.csv`
-- Writing graphs to `.csv`
+- Loading graphs from `.csv` and `.dot`
+- Creating picture of the graph (.png)
+- Converting between`.csv` and `.dot`
 
 ## Technologies used
 
@@ -45,20 +51,36 @@ pip install -r requirements.txt
 
 4. How to use
 
+Using cli:
+
+For .dot files:
+```bash
+python3 main.py compute example.dot result.dot
+python3 main.py picture result.dot result.png
+```
+
+For .csv files:
+```bash
+python3 main.py compute example.csv result.dot --csv
+python3 main.py picture result.dot result.png
+```
+
+
 ```python
 """
 Reading graph from the file.
 Finding maximal planar graph.
 Write it to the file
 """
-from algorithm.tools import find_maximal_planar_subgraph
-from graph_rw.read_graph import read_graph_from_csv
-from graph_rw.write_graph import write_graph_to_csv
+from Find_Max_Planar_Subgraph.algorithm import tools
+from Find_Max_Planar_Subgraph.graph_rw import read_graph, write_graph
 
 # reading the graph
-graph = read_graph_from_csv("example.csv")
-max_graph = find_maximal_planar_subgraph(graph)
-write_graph_to_csv(max_graph, "example_maximal_planar_graph.csv")
+graph, is_directed = read_graph.read_graph_from_csv("example.dot")
+print(f"{graph=}")
+planar = tools.maximum_planar_subgraph(graph)
+print(f"{planar=}")
+write_graph.write_graph_to_csv(planar, "example_planar.dot")
 ```
 
 ## Project structure<br>
