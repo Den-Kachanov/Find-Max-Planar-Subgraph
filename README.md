@@ -154,7 +154,7 @@ Find_Max_Planar_Subgraph/<br>
 
 #### Maximum planar subgraph
 
-![K5 graph](examples/Petersen/maximum_planar_subgraph_petersen.png)
+![Petersen graph](examples/Petersen-graph/maximum_planar_subgraph_petersen.png)
 
 
 ## Team
