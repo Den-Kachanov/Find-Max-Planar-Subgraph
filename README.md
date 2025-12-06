@@ -108,52 +108,52 @@ Find_Max_Planar_Subgraph/<br>
 
 ### Chvátal graph
 
-Original graph
+#### Original graph
 
 ![Chvátal graph](examples/Chvatal-graph/chvatal.png)
 
-Maximum planar subgraph
+#### Maximum planar subgraph
 
 ![Chvátal graph](examples/Chvatal-graph/maximum_planar_subgraph_chvatal.png)
 
 ### Desargues-graph
 
-Original graph
+#### Original graph
 
 ![Desargues Graph](examples/Desargues-graph/desargues.png)
 
-Maximum planar subgraph
+#### Maximum planar subgraph
 
 ![Desargues Graph](examples/Desargues-graph/maximum_planar_subgraph_desargues.png)
 
 ### K3,3
 
-Original graph
+#### Original graph
 
 ![K3,3 graph](examples/K3-3/K3-3.png)
 
-Maximum planar subgraph
+#### Maximum planar subgraph
 
 ![K3,3 graph](examples/K3-3/maximum_planar_subgraph_K3-3.png)
 
 ### K5
 
-Original graph
+#### Original graph
 
 ![K5 graph](examples/K5/K5.png)
 
-Maximum planar subgraph
+#### Maximum planar subgraph
 
 ![K5 graph](examples/K5/maximum_planar_subgraph_K5.png)
 
 
 ### Petersen graph
 
-Original graph
+#### Original graph
 
 ![Petersen graph](examples/Petersen-graph/petersen.png)
 
-Maximum planar subgraph
+#### Maximum planar subgraph
 
 ![K5 graph](examples/Petersen/maximum_planar_subgraph_petersen.png)
 
