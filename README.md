@@ -156,6 +156,9 @@ Find_Max_Planar_Subgraph/<br>
 
 ![Petersen graph](examples/Petersen-graph/maximum_planar_subgraph_petersen.png)
 
+## Feelings about the project
+
+As a team, we really enjoyed working on this project and learned a lot from it. The task turned out to be more challenging than we first expected, especially when dealing with the details of planarity and the behavior of NP-hard problems. At the same time, these challenges helped us better understand graph theory and improved our problem-solving skills. We also discovered how important teamwork is: discussing ideas, debugging together, and helping each other when something didn’t work made the process smoother and more enjoyable. In the end, we were proud of what we achieved and felt that the project gave us valuable experience both technically and as a team.
 
 ## Team
 **[Denys Kachanov](https://github.com/Den-Kachanov)**
